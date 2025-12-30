@@ -65,8 +65,9 @@
 
     .logo-group {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 12px;
+      gap: 4px;
       text-decoration: none;
       cursor: pointer;
     }
@@ -75,6 +76,15 @@
       height: 40px;
       width: auto;
       display: block;
+    }
+
+    .logo-tagline {
+      font-size: 11px;
+      color: var(--color-gray-600);
+      margin: 0;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      font-weight: 600;
     }
 
     .logo-shape {
@@ -911,6 +921,10 @@
         height: 32px;
       }
 
+      .logo-tagline {
+        font-size: 10px;
+      }
+
       .hero {
         padding: 40px 5vw;
         gap: 30px;
@@ -978,6 +992,7 @@
   <div class="header-container">
     <a href="#" class="logo-group">
       <img src="images/Long1.png" alt="Prinkii Logo" class="logo-image">
+      <p class="logo-tagline">Self-service printing</p>
     </a>
     <nav>
       <a href="#how-it-works">How it works</a>
