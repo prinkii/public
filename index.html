@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Prinkii - Scan, Print & Pay Instantly</title>
-  <meta name="description" content="Prinkii is a self-service printing web app. Scan QR at any kiosk, upload files, choose print settings, pay securely and collect prints instantly.">
+  <meta name="description" content="Prinkii is a self-service printing mobile app. Scan QR at any kiosk, upload files, choose print settings, pay securely and collect prints instantly.">
   <style>
     * {
       margin: 0;
@@ -688,6 +688,156 @@
       line-height: 1.6;
     }
 
+    /* ===== PAYMENT FLOW SECTION ===== */
+    .payment-flow {
+      padding: 80px 6vw;
+      background: linear-gradient(180deg, var(--color-gray-50) 0%, white 100%);
+    }
+
+    .payment-flow-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .payment-flow-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .payment-flow-diagram {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--color-gray-100);
+    }
+
+    .flow-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      position: relative;
+    }
+
+    .flow-step {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      position: relative;
+    }
+
+    .flow-step::after {
+      content: '';
+      position: absolute;
+      left: 28px;
+      top: 64px;
+      width: 2px;
+      height: calc(100% + 16px);
+      background: linear-gradient(180deg, var(--color-blue) 0%, rgba(0, 82, 255, 0.2) 100%);
+    }
+
+    .flow-step:last-child::after {
+      display: none;
+    }
+
+    .flow-step-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--color-blue) 0%, #0041CC 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: white;
+      font-weight: 700;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(0, 82, 255, 0.3);
+      position: relative;
+      z-index: 1;
+    }
+
+    .flow-step-icon.razorpay {
+      background: linear-gradient(135deg, #0C2451 0%, #1A3A6B 100%);
+      box-shadow: 0 4px 12px rgba(12, 36, 81, 0.3);
+    }
+
+    .flow-step-content {
+      flex: 1;
+      background: var(--color-gray-50);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      border-left: 4px solid var(--color-blue);
+    }
+
+    .flow-step-content.razorpay {
+      border-left-color: #0C2451;
+      background: linear-gradient(90deg, rgba(12, 36, 81, 0.05) 0%, var(--color-gray-50) 100%);
+    }
+
+    .flow-step-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--color-dark);
+      margin-bottom: 6px;
+    }
+
+    .flow-step-desc {
+      font-size: 14px;
+      color: var(--color-gray-600);
+      line-height: 1.6;
+    }
+
+    .razorpay-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #0C2451;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-top: 8px;
+    }
+
+    .payment-methods {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .payment-method-tag {
+      background: white;
+      border: 1px solid var(--color-gray-200);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      color: var(--color-gray-600);
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      .payment-flow-diagram {
+        padding: 32px 24px;
+      }
+
+      .flow-step {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .flow-step::after {
+        left: 28px;
+        top: 56px;
+      }
+
+      .flow-step-content {
+        width: 100%;
+      }
+    }
+
     /* ===== CTA SECTION ===== */
     .cta-section {
       padding: 80px 6vw;
@@ -1085,8 +1235,8 @@
 
     <div class="feature-card">
       <div class="feature-icon">💳</div>
-      <h4 class="feature-title">Instant digital payments</h4>
-      <p class="feature-text">Integrated payment options let users pay in the app itself, enabling complete self-service workflows and reducing cash handling at counters.</p>
+      <h4 class="feature-title">Wallet-based payments</h4>
+      <p class="feature-text">Customers recharge their Prinkii wallet via Razorpay and pay instantly from wallet balance for print jobs, enabling fast self-service workflows without repeated payment steps.</p>
     </div>
 
     <div class="feature-card">
@@ -1144,6 +1294,92 @@
   </div>
 </section>
 
+<section class="payment-flow" id="payment-flow">
+  <div class="payment-flow-container">
+    <div class="payment-flow-header">
+      <div class="section-eyebrow">Secure Payment Processing</div>
+      <h3 class="section-title">Prinkii Wallet & Razorpay Integration</h3>
+      <p class="section-desc">
+        Prinkii uses an internal wallet system. Customers recharge their wallet via Razorpay, then use wallet balance for instant print payments.
+      </p>
+    </div>
+
+    <div class="payment-flow-diagram">
+      <div class="flow-steps">
+        <div class="flow-step">
+          <div class="flow-step-icon">1</div>
+          <div class="flow-step-content">
+            <div class="flow-step-title">Wallet Recharge Initiated</div>
+            <div class="flow-step-desc">
+              Customer opens Prinkii app and selects "Recharge Wallet" option. They enter the amount (X) they want to add to their Prinkii wallet.
+            </div>
+          </div>
+        </div>
+
+        <div class="flow-step">
+          <div class="flow-step-icon razorpay">R</div>
+          <div class="flow-step-content razorpay">
+            <div class="flow-step-title">Razorpay Payment Gateway</div>
+            <div class="flow-step-desc">
+              Prinkii backend creates a payment order via Razorpay API for the recharge amount. Customer is redirected to Razorpay's secure payment interface. All payment data is handled by Razorpay's PCI-DSS compliant infrastructure.
+              <div class="razorpay-badge">
+                <span>🔒</span>
+                <span>PCI-DSS Compliant</span>
+              </div>
+              <div class="payment-methods">
+                <span class="payment-method-tag">UPI</span>
+                <span class="payment-method-tag">Credit/Debit Cards</span>
+                <span class="payment-method-tag">Net Banking</span>
+                <span class="payment-method-tag">Digital Wallets</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flow-step">
+          <div class="flow-step-icon">2</div>
+          <div class="flow-step-content">
+            <div class="flow-step-title">Wallet Balance Updated</div>
+            <div class="flow-step-desc">
+              Razorpay processes the payment and sends webhook confirmation to Prinkii backend. Upon successful payment, the recharge amount (X) is automatically credited to customer's Prinkii wallet balance.
+            </div>
+          </div>
+        </div>
+
+        <div class="flow-step">
+          <div class="flow-step-icon">3</div>
+          <div class="flow-step-content">
+            <div class="flow-step-title">Customer Selects Print Job</div>
+            <div class="flow-step-desc">
+              Customer configures print settings (copies, paper size, color mode) and reviews the total cost estimate in the Prinkii app.
+            </div>
+          </div>
+        </div>
+
+        <div class="flow-step">
+          <div class="flow-step-icon">4</div>
+          <div class="flow-step-content">
+            <div class="flow-step-title">Payment from Wallet</div>
+            <div class="flow-step-desc">
+              Customer taps "Pay from Wallet" button. Prinkii checks wallet balance and deducts the print job amount from the internal wallet. No external payment gateway is involved for wallet-based transactions.
+            </div>
+          </div>
+        </div>
+
+        <div class="flow-step">
+          <div class="flow-step-icon">5</div>
+          <div class="flow-step-content">
+            <div class="flow-step-title">Print Job Released</div>
+            <div class="flow-step-desc">
+              Upon successful wallet deduction, Prinkii automatically releases the print job to the kiosk printer. Customer receives confirmation and collects prints instantly.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="faq" id="faq">
   <div class="faq-container">
     <div>
@@ -1160,7 +1396,7 @@
       <div class="faq-item">
         <div class="faq-question">Do customers need to install a native app?</div>
         <div class="faq-answer">
-          No, Prinkii runs entirely in the mobile browser. Scanning the QR opens a secure web session that expires automatically after the user finishes.
+          Yes, customers need to install the Prinkii app available for iOS and Android. Scanning the QR code opens the app pre-linked to that exact printer. Sessions expire automatically after the user finishes.
         </div>
       </div>
 
@@ -1188,7 +1424,7 @@
       <div class="faq-item">
         <div class="faq-question">How do payments work?</div>
         <div class="faq-answer">
-          Prinkii integrates multiple payment gateways (UPI, cards, wallets) so customers can pay directly in the app using their preferred method with instant confirmation.
+          Prinkii uses an internal wallet system. Customers recharge their Prinkii wallet by paying via Razorpay (supporting UPI, credit/debit cards, net banking, and digital wallets). Once the wallet is recharged, customers can instantly pay for print jobs using their wallet balance without any additional payment gateway interaction. All wallet recharges are processed securely through Razorpay's PCI-DSS compliant infrastructure.
         </div>
       </div>
     </div>
