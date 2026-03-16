@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download the Prinkii App (iOS & Android)</title>
+  <meta name="description" content="Download Prinkii for iOS and Android. Scan, print & pay in seconds at any Prinkii kiosk.">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --color-red: #FF2D55;
+      --color-green: #00D084;
+      --color-blue: #0052FF;
+      --color-yellow: #FFD700;
+      --color-dark: #0F1117;
+      --color-light: #FFFFFF;
+      --color-gray-50: #F6F8FA;
+      --color-gray-100: #EAEEF2;
+      --color-gray-200: #D0D7DE;
+      --color-gray-600: #57606A;
+      --color-gray-900: #24292F;
+      --accent: #0052FF;
+      --radius: 12px;
+      --radius-lg: 20px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.12);
+      --shadow-lg: 0 12px 32px rgba(0,0,0,0.15);
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+      line-height: 1.6;
+      color: var(--color-gray-900);
+      background: var(--color-light);
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--color-gray-100);
+      padding: 14px 6vw;
+    }
+
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .logo-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .logo-image {
+      height: 40px;
+      width: auto;
+      display: block;
+    }
+
+    .logo-tagline {
+      font-size: 11px;
+      color: var(--color-gray-600);
+      margin: 0;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    nav {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    nav a {
+      font-size: 14px;
+      color: var(--color-gray-600);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    /* ===== CONTENT ===== */
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 6vw;
+    }
+
+    .eyebrow {
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--color-green);
+    }
+
+    h1 {
+      font-size: 44px;
+      font-weight: 900;
+      color: var(--color-dark);
+      letter-spacing: -0.8px;
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      color: var(--color-gray-600);
+      line-height: 1.7;
+      max-width: 720px;
+      margin-bottom: 28px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 16px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid var(--color-gray-100);
+      border-radius: var(--radius-lg);
+      padding: 26px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .card-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--color-dark);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .platform-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--color-gray-200);
+      background: var(--color-gray-50);
+      color: var(--color-gray-600);
+    }
+
+    .card-desc {
+      font-size: 14px;
+      color: var(--color-gray-600);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .btn .btn-icon {
+      width: 18px;
+      height: 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .btn .btn-icon svg {
+      width: 18px;
+      height: 18px;
+      display: block;
+      fill: currentColor;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--color-blue) 0%, #0041CC 100%);
+      color: white;
+      box-shadow: 0 4px 16px rgba(0, 82, 255, 0.25);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 82, 255, 0.35);
+    }
+
+    .btn-secondary {
+      background: var(--color-gray-50);
+      border-color: var(--color-gray-100);
+      color: var(--color-gray-900);
+    }
+
+    .btn-secondary:hover {
+      background: var(--color-gray-100);
+      border-color: var(--color-gray-200);
+      transform: translateY(-2px);
+    }
+
+    .note {
+      margin-top: 22px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-gray-100);
+      background: linear-gradient(135deg, rgba(255, 45, 85, 0.06) 0%, rgba(0, 82, 255, 0.06) 100%);
+      padding: 18px 20px;
+      color: var(--color-gray-600);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .note strong {
+      color: var(--color-dark);
+    }
+
+    .links-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .muted {
+      font-size: 12px;
+      color: var(--color-gray-600);
+      margin-top: 10px;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--color-dark);
+      color: #8B8D98;
+      padding: 40px 6vw;
+      font-size: 13px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-link {
+      color: #8B8D98;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      margin-right: 20px;
+    }
+
+    .footer-link:hover {
+      color: white;
+    }
+
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        gap: 16px;
+      }
+
+      nav a {
+        font-size: 13px;
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      .links-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-container">
+    <a href="index.html" class="logo-group">
+      <img src="images/Long1.png" alt="Prinkii Logo" class="logo-image">
+      <p class="logo-tagline">Self-service printing</p>
+    </a>
+    <nav>
+      <a href="index.html#how-it-works">How it works</a>
+      <a href="index.html#features">Features</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="download.html" aria-current="page">Download app</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page">
+  <div class="eyebrow">Get the Prinkii app</div>
+  <h1>Download for iOS and Android</h1>
+  <p class="subtitle">
+    Install Prinkii to scan kiosk QR codes, upload documents, choose print settings, pay securely, and collect prints instantly.
+  </p>
+
+  <section class="grid" aria-label="Download options">
+    <div class="card">
+      <div class="card-title">
+        iPhone<span class="platform-pill">iOS</span>
+      </div>
+      <p class="card-desc">
+        Download Prinkii from the Apple App Store.
+      </p>
+      <a class="btn btn-primary" id="iosStoreBtn" href="#" rel="noopener">
+        <span class="btn-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false" role="img" aria-label="">
+            <path d="M16.365 1.43c0 1.14-.42 2.26-1.2 3.2-.93 1.14-2.5 2.03-3.87 1.92-.18-1.09.33-2.26 1.17-3.19.93-1.03 2.54-1.8 3.9-1.93zM20.9 17.2c-.62 1.44-.92 2.09-1.72 3.38-1.12 1.79-2.69 4.03-4.64 4.05-1.73.02-2.18-1.13-4.53-1.11-2.35.01-2.84 1.13-4.57 1.11-1.95-.02-3.45-2.03-4.57-3.82C.77 19.4.1 14.3 2.1 10.9c1.43-2.46 3.7-3.9 5.84-3.93 1.84-.03 3.57 1.24 4.53 1.24.94 0 2.93-1.53 4.95-1.3.85.04 3.24.34 4.78 2.58-3.9 2.14-3.27 7.65.7 8.7z"/>
+          </svg>
+        </span>
+        App Store <span>→</span>
+      </a>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        Phones<span class="platform-pill">Android</span>
+      </div>
+      <p class="card-desc">
+        Download Prinkii from Google Play.
+      </p>
+      <a class="btn btn-primary" id="androidStoreBtn" href="#" rel="noopener">
+        <span class="btn-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false" role="img" aria-label="">
+            <path d="M8.18 3.37 6.9 2.1a.6.6 0 0 0-.85.85l1.23 1.23A7.7 7.7 0 0 0 4.1 9.2h15.8a7.7 7.7 0 0 0-3.18-5.02l1.23-1.23a.6.6 0 0 0-.85-.85l-1.28 1.27A7.67 7.67 0 0 0 12 2.2c-1.35 0-2.62.35-3.82 1.17zM7.2 8.1a.9.9 0 1 1 0-1.8.9.9 0 0 1 0 1.8zm9.6 0a.9.9 0 1 1 0-1.8.9.9 0 0 1 0 1.8zM4.2 10.4v7.8c0 .99.81 1.8 1.8 1.8h1.2v-9.6H4.2zm12.6 9.6H7.2v2.1c0 .94.76 1.7 1.7 1.7h6.4c.94 0 1.7-.76 1.7-1.7V20zm3-9.6h-3v9.6h1.2c.99 0 1.8-.81 1.8-1.8v-7.8z"/>
+          </svg>
+        </span>
+        Google Play <span>→</span>
+      </a>
+    </div>
+  </section>
+
+  <div class="note">
+    <strong>Already at a kiosk?</strong> Scan the QR code shown on the kiosk screen to connect to that printer, then complete your job in the app.
+    <div class="links-row">
+      <a class="btn btn-secondary" href="index.html#how-it-works">How it works</a>
+      <a class="btn btn-secondary" href="mailto:contact@prinkii.com?subject=Prinkii%20App%20Download%20Help">Need help?</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-content">
+    <span>© 2026 Prinkii - A product of ADANA SOLUTIONS PRIVATE LIMITED</span>
+    <div>
+      <a href="download.html" class="footer-link">Download</a>
+      <a href="privacy-policy.html" class="footer-link">Privacy</a>
+      <a href="terms-of-use.html" class="footer-link">Terms</a>
+      <a href="index.html#faq" class="footer-link">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Replace these with your real store URLs
+  const IOS_APP_STORE_URL = 'https://apps.apple.com/us/iphone/today';
+  const ANDROID_PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.prinkii.mobile';
+
+  const iosBtn = document.getElementById('iosStoreBtn');
+  const androidBtn = document.getElementById('androidStoreBtn');
+
+  if (iosBtn) iosBtn.href = IOS_APP_STORE_URL;
+  if (androidBtn) androidBtn.href = ANDROID_PLAY_STORE_URL;
+</script>
+
+</body>
+</html>
+
