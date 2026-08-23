@@ -1,448 +1,249 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="scroll-smooth" lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Download the Prinkii App (iOS & Android)</title>
-  <meta name="description" content="Download Prinkii for iOS and Android. Scan, print & pay in seconds at any Prinkii kiosk.">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    :root {
-      --color-red: #FF2D55;
-      --color-green: #00D084;
-      --color-blue: #0052FF;
-      --color-yellow: #FFD700;
-      --color-dark: #0F1117;
-      --color-light: #FFFFFF;
-      --color-gray-50: #F6F8FA;
-      --color-gray-100: #EAEEF2;
-      --color-gray-200: #D0D7DE;
-      --color-gray-600: #57606A;
-      --color-gray-900: #24292F;
-      --accent: #0052FF;
-      --radius: 12px;
-      --radius-lg: 20px;
-      --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
-      --shadow-md: 0 4px 12px rgba(0,0,0,0.12);
-      --shadow-lg: 0 12px 32px rgba(0,0,0,0.15);
-    }
-
-    html, body {
-      min-height: 100%;
-      height: 100%;
-    }
-
-    body {
-      display: flex;
-      flex-direction: column;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
-      line-height: 1.6;
-      color: var(--color-gray-900);
-      background: var(--color-light);
-    }
-
-    main.page {
-      flex: 1;
-    }
-
-    /* ===== HEADER ===== */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--color-gray-100);
-      padding: 14px 6vw;
-    }
-
-    .header-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-
-    .logo-group {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4px;
-      text-decoration: none;
-      cursor: pointer;
-    }
-
-    .logo-image {
-      height: 40px;
-      width: auto;
-      display: block;
-    }
-
-    .logo-tagline {
-      font-size: 11px;
-      color: var(--color-gray-600);
-      margin: 0;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      font-weight: 600;
-    }
-
-    nav {
-      display: flex;
-      gap: 32px;
-      align-items: center;
-    }
-
-    nav a {
-      font-size: 14px;
-      color: var(--color-gray-600);
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s ease;
-      position: relative;
-    }
-
-    nav a:hover {
-      color: var(--accent);
-    }
-
-    /* ===== CONTENT ===== */
-    .page {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 32px 6vw;
-    }
-
-    .eyebrow {
-      font-size: 13px;
-      color: var(--accent);
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-      display: inline-flex;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .eyebrow::before {
-      content: '';
-      display: inline-block;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--color-green);
-    }
-
-    h1 {
-      font-size: 44px;
-      font-weight: 900;
-      color: var(--color-dark);
-      letter-spacing: -0.8px;
-      line-height: 1.15;
-      margin-bottom: 14px;
-    }
-
-    .subtitle {
-      font-size: 16px;
-      color: var(--color-gray-600);
-      line-height: 1.7;
-      max-width: 720px;
-      margin-bottom: 28px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, max-content);
-      gap: 10px;
-      justify-content: center;
-      margin: 10px auto 0;
-      max-width: 700px;
-    }
-
-    .card {
-      background: transparent;
-      border: none;
-      border-radius: 0;
-      padding: 0;
-      box-shadow: none;
-    }
-
-    .card-title {
-      font-size: 18px;
-      font-weight: 800;
-      color: var(--color-dark);
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .platform-pill {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      font-weight: 700;
-      padding: 5px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--color-gray-200);
-      background: var(--color-gray-50);
-      color: var(--color-gray-600);
-    }
-
-    .card-desc {
-      font-size: 14px;
-      color: var(--color-gray-600);
-      line-height: 1.7;
-      margin-bottom: 16px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      width: auto;
-      padding: 0;
-      border-radius: 0;
-      font-size: 15px;
-      font-weight: 700;
-      text-decoration: none;
-      transition: all 0.25s ease;
-      border: none;
-      cursor: pointer;
-      user-select: none;
-      background: transparent;
-      color: inherit;
-    }
-
-    .btn .btn-icon {
-      width: 18px;
-      height: 18px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .btn .btn-icon svg {
-      width: 18px;
-      height: 18px;
-      display: block;
-      fill: currentColor;
-    }
-
-    .store-badge {
-      height: 54px;
-      width: auto;
-      max-width: 280px;
-      display: inline-block;
-      object-fit: contain;
-      vertical-align: middle;
-      transition: transform 0.2s ease;
-    }
-
-    .store-badge.ios {
-      height: 54px;
-      transform: scale(0.72);
-      max-width: 260px;
-    }
-
-    .store-badge.android {
-      height: 54px;
-      transform: scale(1.08);
-      max-width: 260px;
-    }
-
-    .btn-primary {
-      background: transparent;
-      color: inherit;
-      box-shadow: none;
-      border: none;
-      padding: 0;
-    }
-
-    .btn-primary:hover {
-      transform: none;
-      box-shadow: none;
-    }
-
-    .btn-secondary {
-      background: var(--color-gray-50);
-      border-color: var(--color-gray-100);
-      color: var(--color-gray-900);
-    }
-
-    .btn-secondary:hover {
-      background: var(--color-gray-100);
-      border-color: var(--color-gray-200);
-      transform: translateY(-2px);
-    }
-
-    .note {
-      margin-top: 22px;
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--color-gray-100);
-      background: linear-gradient(135deg, rgba(255, 45, 85, 0.06) 0%, rgba(0, 82, 255, 0.06) 100%);
-      padding: 18px 20px;
-      color: var(--color-gray-600);
-      font-size: 14px;
-      line-height: 1.7;
-    }
-
-    .note strong {
-      color: var(--color-dark);
-    }
-
-    .links-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 12px;
-    }
-
-    .muted {
-      font-size: 12px;
-      color: var(--color-gray-600);
-      margin-top: 10px;
-    }
-
-    /* ===== FOOTER ===== */
-    footer {
-      background: var(--color-dark);
-      color: #8B8D98;
-      padding: 40px 6vw;
-      font-size: 13px;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .footer-content {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .footer-link {
-      color: #8B8D98;
-      text-decoration: none;
-      transition: color 0.3s ease;
-      margin-right: 20px;
-    }
-
-    .footer-link:hover {
-      color: white;
-    }
-
-    @media (max-width: 900px) {
-      .grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        gap: 16px;
-      }
-
-      nav a {
-        font-size: 13px;
-      }
-
-      h1 {
-        font-size: 32px;
-      }
-
-      .links-row {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Download Prinkii App</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-fixed": "#e3e1eb",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#005bb1",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed-dim": "#c8c5ca",
+                        "surface-dim": "#d9dadc",
+                        "secondary-container": "#e4e1e6",
+                        "on-surface-variant": "#414753",
+                        "background": "#f8f9fb",
+                        "inverse-surface": "#2e3132",
+                        "on-background": "#191c1e",
+                        "on-secondary-container": "#181a1c",
+                        "surface-container-low": "#f3f3f6",
+                        "on-surface": "#191c1e",
+                        "surface-container-highest": "#e2e2e5",
+                        "on-primary-container": "#001838",
+                        "outline-variant": "#c1c6d5",
+                        "primary-container": "#d2e3fc",
+                        "secondary": "#585e68",
+                        "tertiary": "#735368",
+                        "surface": "#f8f9fb",
+                        "outline": "#727781"
+                    },
+                    spacing: {
+                        "sm": "0.5rem",
+                        "container-max": "1280px",
+                        "gutter": "1.5rem",
+                        "xl": "4rem",
+                        "lg": "2rem",
+                        "md": "1.5rem"
+                    },
+                    fontFamily: {
+                        "label-sm": ["Inter", "sans-serif"],
+                        "body-lg": ["Inter", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"],
+                        "display-lg": ["Plus Jakarta Sans", "sans-serif"],
+                        "headline-sm": ["Plus Jakarta Sans", "sans-serif"],
+                        "label-md": ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        };
+    </script>
 </head>
-<body>
+<body class="bg-surface text-on-surface font-body-md antialiased overflow-x-hidden">
 
-<header>
-  <div class="header-container">
-    <a href="index.html" class="logo-group">
-      <img src="images/Long1.png" alt="Prinkii Logo" class="logo-image">
-      <p class="logo-tagline">Self-service printing</p>
-    </a>
-    <nav>
-      <a href="index.html#how-it-works">How it works</a>
-      <a href="index.html#features">Features</a>
-      <a href="index.html#faq">FAQ</a>
-      <a href="download.html" aria-current="page">Download app</a>
+<nav
+        class="fixed top-0 left-0 w-full z-50 bg-surface/90 dark:bg-surface-container-highest/90 backdrop-blur-md border-b border-outline-variant dark:border-outline shadow-sm dark:shadow-none">
+        <div class="flex justify-between items-center h-24 px-gutter max-w-container-max mx-auto">
+            <a class="flex items-center gap-2" href="index.html">
+                <img alt="Prinkii Logo" class="h-10 md:h-12 w-auto" src="images/Long1.png">
+            </a>
+            <div class="hidden md:flex gap-lg items-center">
+                <a class="font-label-md text-[16px] font-medium text-on-surface-variant dark:text-surface-variant hover:text-primary hover:[text-shadow:0_0_12px_rgba(10,115,232,0.8)] transition-all duration-300"
+                    href="about.html">About</a>
+                <a class="font-label-md text-[16px] font-medium text-on-surface-variant dark:text-surface-variant hover:text-primary hover:[text-shadow:0_0_12px_rgba(10,115,232,0.8)] transition-all duration-300"
+                    href="index.html#how-it-works">How it works</a>
+                <a class="font-label-md text-[16px] font-medium text-on-surface-variant dark:text-surface-variant hover:text-primary hover:[text-shadow:0_0_12px_rgba(10,115,232,0.8)] transition-all duration-300"
+                    href="index.html#product-showcase">Features</a>
+                <a class="font-label-md text-[16px] font-medium text-on-surface-variant dark:text-surface-variant hover:text-primary hover:[text-shadow:0_0_12px_rgba(10,115,232,0.8)] transition-all duration-300"
+                    href="download.html">Download App</a>
+                <a class="font-label-md text-[16px] font-medium text-on-surface-variant dark:text-surface-variant hover:text-primary hover:[text-shadow:0_0_12px_rgba(10,115,232,0.8)] transition-all duration-300"
+                    href="index.html#contact">Contact</a>
+            </div>
+            <a class="hidden md:inline-flex items-center justify-center bg-primary text-white font-label-md text-[16px] px-6 py-3 rounded-full hover:bg-primary-container/90 transition-all duration-300 scale-95 active:scale-90 font-bold"
+            href="download.html" style="background-color: rgb(8, 120, 232);">
+            Get Prinkii →
+            </a>
+            <button id="mobile-menu-btn" class="md:hidden text-on-surface" aria-label="Toggle navigation">
+                <span class="material-symbols-outlined text-[32px]">menu</span>
+            </button>
+        </div>
+        <!-- Mobile menu overlay -->
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-surface border-b border-outline-variant px-gutter py-4 space-y-3">
+            <a class="block font-label-md text-[16px] font-medium text-on-surface hover:text-primary hover:[text-shadow:0_0_12px_rgba(10,115,232,0.8)] transition-all duration-300"
+                href="about.html">About</a>
+            <a class="block font-label-md text-[16px] font-medium text-on-surface hover:text-primary hover:[text-shadow:0_0_12px_rgba(10,115,232,0.8)] transition-all duration-300"
+                href="index.html#how-it-works">How it works</a>
+            <a class="block font-label-md text-[16px] font-medium text-on-surface hover:text-primary hover:[text-shadow:0_0_12px_rgba(10,115,232,0.8)] transition-all duration-300"
+                href="index.html#product-showcase">Features</a>
+            <a class="block font-label-md text-[16px] font-medium text-on-surface hover:text-primary hover:[text-shadow:0_0_12px_rgba(10,115,232,0.8)] transition-all duration-300"
+                href="download.html">Download App</a>
+            <a class="block font-label-md text-[16px] font-medium text-on-surface hover:text-primary hover:[text-shadow:0_0_12px_rgba(10,115,232,0.8)] transition-all duration-300"
+                href="index.html#contact">Contact</a>
+        </div>
     </nav>
-  </div>
-</header>
 
-<main class="page">
-  <div class="eyebrow">Get the Prinkii app</div>
-  <h1>Download for iOS and Android</h1>
-  <p class="subtitle">
-    Install Prinkii to scan kiosk QR codes, upload documents, choose print settings, pay securely, and collect prints instantly.
-  </p>
+<main class="pt-32 pb-xl min-h-[80vh] flex flex-col justify-center bg-surface">
+    <div class="max-w-3xl mx-auto px-gutter text-center w-full">
+        <span class="font-label-sm text-label-sm text-primary tracking-widest uppercase font-bold mb-4 block">Get the Prinkii App</span>
+        <h1 class="font-display-lg text-[40px] md:text-[56px] font-bold tracking-tight text-on-surface mb-6 leading-tight">
+            Download for iOS and Android
+        </h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed max-w-2xl mx-auto mb-12">
+            Install Prinkii to scan kiosk QR codes, upload documents, choose print settings, pay securely, and collect prints instantly.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mb-16">
+            <!-- App Store -->
+            <a href="https://apps.apple.com/us/iphone/today" target="_blank" rel="noopener noreferrer" class="hover:scale-105 transition-transform duration-300 flex-shrink-0">
+                <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" class="h-14 w-auto">
+            </a>
+            
+            <!-- Google Play -->
+            <a href="https://play.google.com/store/apps/details?id=com.prinkii.mobile" target="_blank" rel="noopener noreferrer" class="hover:scale-105 transition-transform duration-300 flex-shrink-0">
+                <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" class="h-[76px] w-auto -my-3">
+            </a>
 
+            <!-- Web App -->
+            <a href="https://app.prinkii.com/auth/sign-in" target="_blank" rel="noopener noreferrer" class="h-14 inline-flex items-center justify-center gap-2 bg-on-surface text-surface-container-lowest px-6 rounded-xl hover:bg-primary hover:text-on-primary hover:scale-105 transition-all duration-300 shadow-sm flex-shrink-0">
+                <span class="material-symbols-outlined text-[24px]">public</span>
+                <span class="font-label-md text-[18px] font-bold">Use Web App</span>
+            </a>
+        </div>
 
-
-  <section class="grid" aria-label="Download options">
-    <div class="card">
-     
-      <a class="btn btn-primary" id="iosStoreBtn" href="#" rel="noopener">
-        <img class="store-badge ios" src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" />
-      </a>
+        <div class="bg-primary/5 border border-primary/20 rounded-[24px] p-6 max-w-2xl mx-auto text-left flex flex-col sm:flex-row gap-4 items-start shadow-sm">
+            <span class="material-symbols-outlined text-primary mt-1 hidden sm:block">info</span>
+            <div>
+                <strong class="text-on-surface block mb-2 text-[16px]">Already at a kiosk?</strong>
+                <p class="text-on-surface-variant text-[15px] leading-relaxed">Scan the QR code shown on the kiosk screen to connect to that printer, then complete your job seamlessly in the app.</p>
+                <div class="mt-4 flex gap-6">
+                    <a href="index.html#how-it-works" class="text-primary font-bold hover:underline text-[14px]">How it works </a>
+                    <a href="mailto:contact@prinkii.com?subject=Prinkii%20App%20Download%20Help" class="text-on-surface-variant font-medium hover:text-primary text-[14px] transition-colors">Need help?</a>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div class="card">
-    
-      <a class="btn btn-primary" id="androidStoreBtn" href="#" rel="noopener">
-        <img class="store-badge android" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" />
-      </a>
-    </div>
-  </section>
-   <div class="note">
-    <strong>Already at a kiosk?</strong> Scan the QR code shown on the kiosk screen to connect to that printer, then complete your job in the app.
-    <div class="links-row">
-      <a class="btn btn-secondary" href="index.html#how-it-works">How it works</a>
-      <a class="btn btn-secondary" href="mailto:contact@prinkii.com?subject=Prinkii%20App%20Download%20Help">Need help?</a>
-    </div>
-  </div>
 </main>
 
-<footer>
-  <div class="footer-content">
-    <span>© 2026 Prinkii - A product of ADANA SOLUTIONS PRIVATE LIMITED</span>
-    <div>
-      <a href="download.html" class="footer-link">Download</a>
-      <a href="privacy-policy.html" class="footer-link">Privacy</a>
-      <a href="terms-of-use.html" class="footer-link">Terms</a>
-      <a href="index.html#faq" class="footer-link">Contact</a>
+<!-- Footer -->
+<footer class="bg-on-surface w-full py-xl border-t border-outline/20">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-lg px-gutter max-w-container-max mx-auto text-left">
+        <div class="col-span-1 md:col-span-1 flex flex-col gap-4">
+            <span class="text-surface-container-lowest font-display-lg font-black tracking-tight">Prinkii</span>
+            <p class="font-body-sm text-body-sm text-surface-dim/70 mt-4">
+                © 2026 Prinkii. All rights reserved. Precision printing for the digital age.
+            </p>
+        </div>
+        <div class="col-span-1 md:col-span-3 flex flex-wrap md:flex-nowrap gap-16 md:justify-end items-start mt-8 md:mt-0">
+            <div class="flex flex-col gap-4">
+                <h4 class="text-surface-container-lowest font-label-lg font-bold mb-2">Navigation</h4>
+                <a class="font-label-md text-label-md text-surface-dim/70 hover:text-surface-container-lowest transition-colors opacity-80 hover:opacity-100 hover:translate-x-1 transition-transform"
+                    href="about.html">About</a>
+                <a class="font-label-md text-label-md text-surface-dim/70 hover:text-surface-container-lowest transition-colors opacity-80 hover:opacity-100 hover:translate-x-1 transition-transform"
+                    href="privacy-policy.html">Privacy Policy</a>
+                <a class="font-label-md text-label-md text-surface-dim/70 hover:text-surface-container-lowest transition-colors opacity-80 hover:opacity-100 hover:translate-x-1 transition-transform"
+                    href="terms-of-use.html">Terms of Service</a>
+                <a class="font-label-md text-label-md text-surface-dim/70 hover:text-surface-container-lowest transition-colors opacity-80 hover:opacity-100 hover:translate-x-1 transition-transform"
+                    href="index.html#contact">Contact Support</a>
+                <a class="font-label-md text-label-md text-surface-dim/70 hover:text-surface-container-lowest transition-colors opacity-80 hover:opacity-100 hover:translate-x-1 transition-transform"
+                    href="download.html">Download App</a>
+            </div>
+            <div class="flex flex-col gap-4">
+                <h4 class="text-surface-container-lowest font-label-lg font-bold mb-2">Social</h4>
+                <a class="font-label-md text-label-md text-surface-dim/70 hover:text-surface-container-lowest transition-colors opacity-80 hover:opacity-100 hover:translate-x-1 transition-transform"
+                    href="#">Instagram</a>
+                <a class="font-label-md text-label-md text-surface-dim/70 hover:text-surface-container-lowest transition-colors opacity-80 hover:opacity-100 hover:translate-x-1 transition-transform"
+                    href="#">LinkedIn</a>
+                <a class="font-label-md text-label-md text-surface-dim/70 hover:text-surface-container-lowest transition-colors opacity-80 hover:opacity-100 hover:translate-x-1 transition-transform"
+                    href="#">Facebook</a>
+                <a class="font-label-md text-label-md text-surface-dim/70 hover:text-surface-container-lowest transition-colors opacity-80 hover:opacity-100 hover:translate-x-1 transition-transform"
+                    href="#">X</a>
+            </div>
+        </div>
     </div>
-  </div>
 </footer>
 
 <script>
+<<<<<<< HEAD
   // Replace these with your real store URLs
   const IOS_APP_STORE_URL = 'https://apps.apple.com/us/app/prinkii/id6761540998';
   const ANDROID_PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.prinkii.mobile';
+=======
+    document.addEventListener("DOMContentLoaded", () => {
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        if (menuBtn && menu) {
+            menuBtn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+        }
+    });
+>>>>>>> 457e759 (Update Prinkii website)
 
-  const iosBtn = document.getElementById('iosStoreBtn');
-  const androidBtn = document.getElementById('androidStoreBtn');
+    // Navigation Active State Highlight
+    const navLinks = document.querySelectorAll("nav a[href]");
+    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    const sections = document.querySelectorAll("section[id]");
+    
+    function updateNavState(activeId) {
+        navLinks.forEach(link => {
+            const href = link.getAttribute("href");
+            if(!href) return;
+            const [linkPath, linkHash] = href.split('#');
+            const pathMatches = (linkPath === currentPath) || (!linkPath && currentPath === 'index.html') || (linkPath === '' && href.startsWith('#'));
+            
+            let isActive = false;
+            if (activeId && pathMatches && linkHash === activeId) {
+                isActive = true; 
+            } else if (!activeId && pathMatches && !linkHash && (!linkPath || linkPath === currentPath)) {
+                isActive = true;
+            }
 
-  if (iosBtn) iosBtn.href = IOS_APP_STORE_URL;
-  if (androidBtn) androidBtn.href = ANDROID_PLAY_STORE_URL;
+            if (isActive) {
+                link.classList.add("text-primary", "font-bold", "[text-shadow:0_0_12px_rgba(10,115,232,0.8)]");
+                link.classList.remove("text-on-surface-variant", "dark:text-surface-variant");
+            } else {
+                link.classList.remove("text-primary", "font-bold", "[text-shadow:0_0_12px_rgba(10,115,232,0.8)]");
+                link.classList.add("text-on-surface-variant", "dark:text-surface-variant");
+            }
+        });
+    }
+
+    if (sections.length > 0) {
+        const scrollObserver = new IntersectionObserver((entries) => {
+            let activeId = null;
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    activeId = entry.target.id;
+                }
+            });
+            if (activeId) updateNavState(activeId);
+        }, { threshold: 0.3 });
+        
+        sections.forEach(sec => scrollObserver.observe(sec));
+    } else {
+        updateNavState(null);
+    }
 </script>
-
 </body>
 </html>
-

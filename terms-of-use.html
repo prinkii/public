@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Terms of Use - Prinkii</title>
   <meta name="description" content="Terms of Use for Prinkii - Self-service printing solution">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -15,22 +18,32 @@
     :root {
       --color-red: #FF2D55;
       --color-green: #00D084;
-      --color-blue: #0052FF;
+      --color-blue: #005bb1;
       --color-yellow: #FFD700;
-      --color-dark: #0F1117;
+      --color-dark: #191c1e;
       --color-light: #FFFFFF;
-      --color-gray-50: #F6F8FA;
-      --color-gray-100: #EAEEF2;
-      --color-gray-200: #D0D7DE;
-      --color-gray-600: #57606A;
-      --color-gray-900: #24292F;
-      --accent: #0052FF;
-      --radius: 12px;
-      --radius-lg: 20px;
+      --color-gray-50: #f8f9fb;
+      --color-gray-100: #edeef0;
+      --color-gray-200: #c1c6d5;
+      --color-gray-600: #414753;
+      --color-gray-900: #191c1e;
+      --accent: #005bb1;
+      --radius: 16px;
+      --radius-lg: 24px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+      --shadow-md: 0 4px 20px rgba(0,0,0,0.04);
+      --shadow-lg: 0 10px 40px rgba(0,0,0,0.08);
+    }
+
+    html, body {
+      min-height: 100%;
+      height: 100%;
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+      display: flex;
+      flex-direction: column;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
       line-height: 1.6;
       color: var(--color-gray-900);
       background: var(--color-light);
@@ -41,8 +54,8 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(10px);
+      background: rgba(248, 249, 251, 0.8);
+      backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--color-gray-100);
       padding: 14px 6vw;
     }
@@ -51,7 +64,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      max-width: 1400px;
+      max-width: 1280px;
       margin: 0 auto;
     }
 
@@ -105,11 +118,12 @@
     }
 
     .page-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 42px;
-      font-weight: 900;
+      font-weight: 800;
       color: var(--color-dark);
       margin-bottom: 12px;
-      letter-spacing: -0.6px;
+      letter-spacing: -0.04em;
     }
 
     .last-updated {
@@ -123,11 +137,13 @@
     }
 
     .content-section h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 24px;
       font-weight: 700;
       color: var(--color-dark);
       margin-bottom: 16px;
       margin-top: 32px;
+      letter-spacing: -0.02em;
     }
 
     .content-section h3 {
@@ -167,7 +183,7 @@
     }
 
     .footer-content {
-      max-width: 1400px;
+      max-width: 1280px;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
@@ -217,7 +233,7 @@
     <nav>
       <a href="index.html#how-it-works">How it works</a>
       <a href="index.html#features">Features</a>
-      <a href="index.html#faq">FAQ</a>
+      <a href="about.html">About</a>
     </nav>
   </div>
 </header>

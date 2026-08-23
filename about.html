@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>About Prinkii - Our Mission & Story</title>
+    <meta name="description" content="Learn about Prinkii — the self-service printing platform transforming how you print. Our mission, values, and the team behind the technology.">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@700;800&amp;display=swap" rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-fixed": "#e3e1eb",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#005bb1",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed-dim": "#c8c5ca",
+                        "surface-dim": "#d9dadc",
+                        "secondary-container": "#e4e1e6",
+                        "on-surface-variant": "#414753",
+                        "background": "#f8f9fb",
+                        "inverse-surface": "#2e3132",
+                        "on-tertiary-container": "#fffbff",
+                        "on-primary-container": "#fefcff",
+                        "on-primary-fixed-variant": "#00468b",
+                        "error": "#ba1a1a",
+                        "on-surface": "#191c1e",
+                        "surface-tint": "#005db6",
+                        "outline": "#717785",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#656467",
+                        "surface": "#f8f9fb",
+                        "surface-container-low": "#f2f4f6",
+                        "outline-variant": "#c1c6d5",
+                        "on-error": "#ffffff",
+                        "primary-fixed": "#d6e3ff",
+                        "surface-container-highest": "#e1e2e4",
+                        "on-background": "#191c1e",
+                        "primary-fixed-dim": "#a9c7ff",
+                        "secondary-fixed": "#e4e1e6",
+                        "tertiary-container": "#74747c",
+                        "secondary": "#5f5e61",
+                        "surface-container-high": "#e7e8ea",
+                        "surface-container": "#edeef0",
+                        "on-primary-fixed": "#001b3d",
+                        "on-tertiary-fixed": "#1a1b22",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#46464e",
+                        "tertiary": "#5b5b63",
+                        "surface-bright": "#f8f9fb",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed": "#1b1b1e",
+                        "inverse-primary": "#a9c7ff",
+                        "surface-variant": "#e1e2e4",
+                        "primary-container": "#0073de",
+                        "inverse-on-surface": "#f0f1f3",
+                        "on-secondary-fixed-variant": "#47464a",
+                        "tertiary-fixed-dim": "#c7c5ce"
+                    },
+                    borderRadius: {
+                        "sm": "0.25rem",
+                        "DEFAULT": "0.5rem",
+                        "md": "0.75rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "md": "24px",
+                        "xs": "4px",
+                        "lg": "48px",
+                        "gutter": "24px",
+                        "sm": "12px",
+                        "container-max": "1280px",
+                        "margin-mobile": "16px",
+                        "base": "8px",
+                        "xl": "80px"
+                    },
+                    fontFamily: {
+                        "display-lg-mobile": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "label-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    fontSize: {
+                        "display-lg-mobile": ["32px", { lineHeight: "38px", letterSpacing: "-0.03em", fontWeight: "800" }],
+                        "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "display-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.04em", fontWeight: "800" }],
+                        "label-sm": ["12px", { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "500" }],
+                        "label-md": ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "600" }],
+                        "headline-md": ["24px", { lineHeight: "32px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "body-lg": ["18px", { lineHeight: "28px", letterSpacing: "0em", fontWeight: "400" }],
+                        "body-md": ["16px", { lineHeight: "24px", letterSpacing: "0em", fontWeight: "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+        .fade-up-delay-1 { transition-delay: 0.1s; }
+        .fade-up-delay-2 { transition-delay: 0.2s; }
+        .fade-up-delay-3 { transition-delay: 0.3s; }
+        .fade-up-delay-4 { transition-delay: 0.4s; }
+
+        .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(229, 231, 235, 0.5); }
+
+        /* Staggered counter animation */
+        @keyframes countUp {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .stat-item { animation: countUp 0.6s ease-out forwards; opacity: 0; }
+        .stat-item:nth-child(1) { animation-delay: 0.1s; }
+        .stat-item:nth-child(2) { animation-delay: 0.25s; }
+        .stat-item:nth-child(3) { animation-delay: 0.4s; }
+        .stat-item:nth-child(4) { animation-delay: 0.55s; }
+
+        /* Value card hover glow */
+        .value-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .value-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+        }
+
+        /* Timeline connector pulse */
+        @keyframes pulse-line {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.8; }
+        }
+        .timeline-line { animation: pulse-line 3s ease-in-out infinite; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased overflow-x-hidden">
+
+<nav class="fixed top-0 left-0 w-full z-50 bg-surface/90 dark:bg-surface-container-highest/90 backdrop-blur-md border-b border-outline-variant dark:border-outline shadow-sm dark:shadow-none">
+    <div class="flex justify-between items-center h-24 px-gutter max-w-container-max mx-auto">
+        <a class="flex items-center gap-2" href="index.html">
+            <img alt="Prinkii Logo" class="h-10 md:h-12 w-auto" src="images/Long1.png">
+        </a>
+        <div class="hidden md:flex gap-lg items-center">
+            <a class="font-label-md text-[16px] font-medium text-on-surface-variant dark:text-surface-variant hover:text-primary hover:[text-shadow:0_0_12px_rgba(10,115,232,0.8)] transition-all duration-300" href="about.html">About</a>
+            <a class="font-label-md text-[16px] font-medium text-on-surface-variant dark:text-surface-variant hover:text-primary hover:[text-shadow:0_0_12px_rgba(10,115,232,0.8)] transition-all duration-300" href="index.html#how-it-works">How it works</a>
+            <a class="font-label-md text-[16px] font-medium text-on-surface-variant dark:text-surface-variant hover:text-primary hover:[text-shadow:0_0_12px_rgba(10,115,232,0.8)] transition-all duration-300" href="index.html#product-showcase">Features</a>
+            <a class="font-label-md text-[16px] font-medium text-on-surface-variant dark:text-surface-variant hover:text-primary hover:[text-shadow:0_0_12px_rgba(10,115,232,0.8)] transition-all duration-300" href="download.html">Download App</a>
+            <a class="font-label-md text-[16px] font-medium text-on-surface-variant dark:text-surface-variant hover:text-primary hover:[text-shadow:0_0_12px_rgba(10,115,232,0.8)] transition-all duration-300" href="index.html#contact">Contact</a>
+        </div>
+        <a class="hidden md:inline-flex items-center justify-center bg-primary text-white font-label-md text-[16px] px-6 py-3 rounded-full hover:bg-primary-container/90 transition-all duration-300 scale-95 active:scale-90 font-bold" href="download.html" style="background-color: rgb(8, 120, 232);">
+            Get Prinkii →
+        </a>
+        <button id="mobile-menu-btn" class="md:hidden text-on-surface" aria-label="Toggle navigation">
+            <span class="material-symbols-outlined text-[32px]">menu</span>
+        </button>
+    </div>
+    <!-- Mobile menu overlay -->
+    <div id="mobile-menu" class="hidden md:hidden bg-surface border-b border-outline-variant px-gutter py-4 space-y-3">
+        <a class="block font-label-md text-[16px] font-medium text-on-surface hover:text-primary hover:[text-shadow:0_0_12px_rgba(10,115,232,0.8)] transition-all duration-300" href="about.html">About</a>
+        <a class="block font-label-md text-[16px] font-medium text-on-surface hover:text-primary hover:[text-shadow:0_0_12px_rgba(10,115,232,0.8)] transition-all duration-300" href="index.html#how-it-works">How it works</a>
+        <a class="block font-label-md text-[16px] font-medium text-on-surface hover:text-primary hover:[text-shadow:0_0_12px_rgba(10,115,232,0.8)] transition-all duration-300" href="index.html#product-showcase">Features</a>
+        <a class="block font-label-md text-[16px] font-medium text-on-surface hover:text-primary hover:[text-shadow:0_0_12px_rgba(10,115,232,0.8)] transition-all duration-300" href="download.html">Download App</a>
+        <a class="block font-label-md text-[16px] font-medium text-on-surface hover:text-primary hover:[text-shadow:0_0_12px_rgba(10,115,232,0.8)] transition-all duration-300" href="index.html#contact">Contact</a>
+    </div>
+</nav>
+
+<main class="pt-24 md:pt-32">
+
+<!-- Hero Section with Shader Animation -->
+<section class="relative overflow-hidden" style="background-color: #f8f9fb; min-height: 480px;">
+    <!-- Shader Background -->
+    <div class="absolute top-0 left-0 right-0 w-full opacity-70 bg-transparent overflow-hidden" style="height: 78%; display:block;">
+        <script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+        <div id="threejs-container-ABOUT" style="width:100%;height:100%"></div>
+        <script>
+(function() {
+  const container = document.getElementById('threejs-container-ABOUT');
+  const width = container.clientWidth || window.innerWidth;
+  const height = container.clientHeight || window.innerHeight;
+
+  const scene = new THREE.Scene();
+
+  const camera = new THREE.PerspectiveCamera(60, width / height, 0.1, 1000);
+  camera.position.set(0, 0, 20);
+
+  const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: "high-performance" });
+  renderer.setSize(width, height);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  container.appendChild(renderer.domElement);
+
+  const primaryColor = new THREE.Color(0x0a73e8);
+
+  // 1. BACKGROUND LINE ANIMATION & NODES
+  const curves = [];
+  const nodes = [];
+  
+  const pathDefs = [
+      // Left clustered curves
+      new THREE.CubicBezierCurve3(new THREE.Vector3(-55, 20, -10), new THREE.Vector3(-30, 0, -8), new THREE.Vector3(-25, 25, -12), new THREE.Vector3(-20, -50, -10)),
+      new THREE.CubicBezierCurve3(new THREE.Vector3(-55, -15, -12), new THREE.Vector3(-25, -25, -6), new THREE.Vector3(-20, 15, -8), new THREE.Vector3(-15, 55, -15)),
+      new THREE.CubicBezierCurve3(new THREE.Vector3(-35, 55, -5), new THREE.Vector3(-20, 30, -5), new THREE.Vector3(-15, -20, -8), new THREE.Vector3(-55, -25, -10)),
+      // Right clustered curves
+      new THREE.CubicBezierCurve3(new THREE.Vector3(55, 10, -12), new THREE.Vector3(28, 5, -5), new THREE.Vector3(20, -15, -15), new THREE.Vector3(25, 50, -8)),
+      new THREE.CubicBezierCurve3(new THREE.Vector3(55, -18, -6), new THREE.Vector3(28, -25, -10), new THREE.Vector3(18, 5, -12), new THREE.Vector3(20, -50, -5)),
+      new THREE.CubicBezierCurve3(new THREE.Vector3(38, 55, -8), new THREE.Vector3(25, 20, -12), new THREE.Vector3(12, -30, -5), new THREE.Vector3(55, -15, -10)),
+      // Top/Bottom boundary sweeps (avoiding center)
+      new THREE.CubicBezierCurve3(new THREE.Vector3(-45, -25, -15), new THREE.Vector3(-15, -35, -10), new THREE.Vector3(15, -35, -10), new THREE.Vector3(45, -25, -15)),
+      // Sweeping curve above text and image
+      new THREE.CubicBezierCurve3(new THREE.Vector3(-45, 22, -10), new THREE.Vector3(-15, 18, -8), new THREE.Vector3(15, 26, -10), new THREE.Vector3(45, 20, -12)),
+      // Middle gap curves (between text and machine, and low bottom)
+      // Strongly curved vertical line so it's not just straight
+      new THREE.CubicBezierCurve3(new THREE.Vector3(5, 45, -10), new THREE.Vector3(-20, 15, -5), new THREE.Vector3(25, -15, -8), new THREE.Vector3(-5, -45, -10)),
+      // Horizontal bottom line spanning end-to-end (-55 to 55)
+      new THREE.CubicBezierCurve3(new THREE.Vector3(-55, -28, -12), new THREE.Vector3(-15, -15, -6), new THREE.Vector3(15, -35, -8), new THREE.Vector3(55, -25, -10)),
+      // Complex horizontal lines passing through the middle
+      new THREE.CubicBezierCurve3(new THREE.Vector3(-55, 5, -12), new THREE.Vector3(-15, -20, -5), new THREE.Vector3(15, 25, -8), new THREE.Vector3(55, -10, -10)),
+      new THREE.CubicBezierCurve3(new THREE.Vector3(-55, -5, -8), new THREE.Vector3(-20, 20, -10), new THREE.Vector3(20, -25, -6), new THREE.Vector3(55, 10, -12)),
+      // Vertical curve right of the machine
+      new THREE.CubicBezierCurve3(new THREE.Vector3(42, 35, -10), new THREE.Vector3(37, 10, -5), new THREE.Vector3(47, -10, -8), new THREE.Vector3(38, -35, -10)),
+      // Additional Left clustered curves
+      new THREE.CubicBezierCurve3(new THREE.Vector3(-55, -5, -8), new THREE.Vector3(-35, 10, -6), new THREE.Vector3(-25, -15, -10), new THREE.Vector3(-15, 50, -12)),
+      new THREE.CubicBezierCurve3(new THREE.Vector3(-55, -30, -10), new THREE.Vector3(-30, -10, -5), new THREE.Vector3(-20, -25, -8), new THREE.Vector3(-20, -50, -15)),
+      new THREE.CubicBezierCurve3(new THREE.Vector3(-55, 15, -12), new THREE.Vector3(-40, 35, -8), new THREE.Vector3(-30, 5, -10), new THREE.Vector3(-25, 50, -15)),
+      new THREE.CubicBezierCurve3(new THREE.Vector3(-55, 5, -5), new THREE.Vector3(-38, -15, -10), new THREE.Vector3(-28, 15, -8), new THREE.Vector3(-18, -50, -12)),
+      // Additional Right clustered curves
+      new THREE.CubicBezierCurve3(new THREE.Vector3(55, 8, -10), new THREE.Vector3(33, -12, -8), new THREE.Vector3(22, 18, -12), new THREE.Vector3(25, -50, -6)),
+      new THREE.CubicBezierCurve3(new THREE.Vector3(55, -22, -8), new THREE.Vector3(38, 15, -12), new THREE.Vector3(25, -5, -6), new THREE.Vector3(18, 50, -10)),
+      new THREE.CubicBezierCurve3(new THREE.Vector3(55, 28, -6), new THREE.Vector3(35, -5, -10), new THREE.Vector3(28, 25, -8), new THREE.Vector3(30, 50, -12)),
+      new THREE.CubicBezierCurve3(new THREE.Vector3(55, -12, -12), new THREE.Vector3(32, 22, -6), new THREE.Vector3(20, -18, -10), new THREE.Vector3(25, -50, -8))
+  ];
+
+  pathDefs.forEach((curve) => {
+      // Use TubeGeometry instead of Line for ultra-smooth, premium rendering
+      const curveGeometry = new THREE.TubeGeometry(curve, 150, 0.03, 8, false);
+      const curveMaterial = new THREE.MeshBasicMaterial({ color: primaryColor, transparent: true, opacity: 0.12, depthWrite: false });
+      const curveMesh = new THREE.Mesh(curveGeometry, curveMaterial);
+      scene.add(curveMesh);
+  });
+
+  // Exactly 30 moving circular dots distributed randomly across the curves
+  const numNodes = 30;
+  const colorBlue = 0x0a73e8;
+  const colorGray = 0xd0d5dd;
+  for (let k = 0; k < numNodes; k++) {
+      const nodeGeo = new THREE.SphereGeometry(0.18, 32, 32);
+      const isGray = Math.random() > 0.5;
+      const nodeMat = new THREE.MeshBasicMaterial({ 
+          color: isGray ? colorGray : colorBlue, 
+          transparent: true, opacity: isGray ? 0.9 : 0.6,
+          depthWrite: false
+      });
+      const node = new THREE.Mesh(nodeGeo, nodeMat);
+      scene.add(node);
+      
+      const randomCurve = pathDefs[Math.floor(Math.random() * pathDefs.length)];
+      nodes.push({ mesh: node, curve: randomCurve, offset: Math.random(), speed: 0.006 + Math.random() * 0.004 });
+  }
+
+
+
+  // Animation loop
+  const clock = new THREE.Clock();
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  window.addEventListener('resize', () => {
+      const w = container.clientWidth || window.innerWidth;
+      const h = container.clientHeight || window.innerHeight;
+      renderer.setSize(w, h);
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+  });
+
+  const animate = () => {
+      requestAnimationFrame(animate);
+      const delta = clock.getDelta();
+      const time = clock.getElapsedTime();
+      
+      if (!prefersReducedMotion) {
+          // Gently breathe/rotate the entire curve scene
+          scene.rotation.y = Math.sin(time * 0.2) * 0.08;
+          scene.rotation.x = Math.cos(time * 0.15) * 0.05;
+          
+          camera.lookAt(scene.position);
+          
+          nodes.forEach(n => {
+              n.offset += n.speed * delta;
+              if (n.offset > 1) n.offset = 0;
+              const pos = n.curve.getPoint(n.offset);
+              n.mesh.position.copy(pos);
+          });
+      }
+      
+      renderer.render(scene, camera);
+  };
+
+  animate();
+})();
+        </script>
+    </div>
+
+    <!-- Decorative Horizontal Rectangle -->
+    <div class="absolute w-full bottom-0 z-[5] border-t border-[#e0dcd6]/60 bg-white/20 backdrop-blur-[2px]" style="height: 22%;"></div>
+
+    <!-- Hero Content -->
+    <div class="relative z-10 max-w-container-max mx-auto px-gutter py-xl flex flex-col items-center text-center">
+        <p class="font-label-sm text-label-sm tracking-widest uppercase font-bold text-primary mb-6 fade-up">About Prinkii</p>
+        <h1 class="font-display-lg text-display-lg text-on-surface mb-6 fade-up fade-up-delay-1" style="font-size: clamp(36px, 6vw, 48px);">
+            Reimagining how the<br>world <span class="text-primary-container">prints.</span>
+        </h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto fade-up fade-up-delay-2 mb-16">
+            We believe printing should be as effortless as sending a message. Prinkii is building the infrastructure to make self-service printing instant, accessible, and delightful — everywhere.
+        </p>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-xl items-center text-left mt-8">
+            <!-- Text Side -->
+            <div class="space-y-6 fade-up">
+                <h2 class="font-headline-lg text-headline-lg text-on-surface" style="font-size: clamp(28px, 4vw, 36px); font-weight: 800; letter-spacing: -0.03em;">
+                    Born from a simple frustration.
+                </h2>
+                <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                    Every student, professional, and traveler has felt it — the maddening loop of finding a print shop, waiting in line, wrestling with USB drives, and losing time you'll never get back.
+                </p>
+                <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                    We founded Prinkii to kill that friction entirely. We set out to build a printing experience that feels as seamless as tapping "send" — scan a QR code, upload from your phone, pay digitally, and collect your prints in seconds. No queues. No drivers. No hassle.
+                </p>
+                <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                    Today, Prinkii kiosks are deployed across universities, offices, and co-working spaces — quietly transforming how thousands of people print every day.
+                </p>
+            </div>
+            <!-- Visual Side -->
+            <div class="flex justify-center fade-up fade-up-delay-2">
+                <div class="relative">
+                    <img alt="Prinkii Kiosk" class="w-full max-w-md rounded-[24px] shadow-[0_10px_40px_rgba(0,0,0,0.08)] object-contain" src="images/front.png">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Mission Statement -->
+<section class="py-xl bg-surface-container-lowest">
+    <div class="max-w-3xl mx-auto px-gutter text-center fade-up">
+        <div class="w-16 h-16 rounded-2xl mx-auto mb-8 flex items-center justify-center" style="background-color: rgba(8,120,229,0.1);">
+            <span class="material-symbols-outlined text-primary text-[32px]">rocket_launch</span>
+        </div>
+        <h2 class="font-headline-lg text-headline-lg text-on-surface mb-6" style="font-size: clamp(28px, 4vw, 36px); font-weight: 800; letter-spacing: -0.03em;">
+            Our Mission
+        </h2>
+        <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed max-w-2xl mx-auto" style="font-size: 20px; line-height: 32px;">
+            To make printing <strong class="text-on-surface">universally accessible</strong> by placing smart, self-service kiosks in every high-traffic location — so anyone can print anything, anytime, from their phone.
+        </p>
+    </div>
+</section>
+
+<!-- Core Values -->
+<section class="py-xl" style="background-color: #f8f9fb;">
+    <div class="max-w-container-max mx-auto px-gutter">
+        <div class="text-center mb-16 fade-up">
+            <span class="font-label-sm text-label-sm text-primary tracking-widest uppercase font-bold mb-4 block">What Drives Us</span>
+            <h2 class="font-headline-lg text-headline-lg text-on-surface" style="font-size: clamp(28px, 4vw, 36px); font-weight: 800; letter-spacing: -0.03em;">
+                Built on four principles.
+            </h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Value 1 -->
+            <div class="value-card bg-white rounded-[24px] border border-[#e0dcd6] p-8 shadow-[0_4px_20px_rgba(0,0,0,0.04)] fade-up fade-up-delay-1">
+                <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6" style="background-color: rgba(8,120,229,0.08);">
+                    <span class="material-symbols-outlined text-primary text-[28px]">speed</span>
+                </div>
+                <h3 class="font-headline-md text-headline-md text-on-surface mb-3" style="font-size: 20px;">Speed First</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                    Every decision is optimized for the fastest path from "I need a printout" to holding it in your hand.
+                </p>
+            </div>
+            <!-- Value 2 -->
+            <div class="value-card bg-white rounded-[24px] border border-[#e0dcd6] p-8 shadow-[0_4px_20px_rgba(0,0,0,0.04)] fade-up fade-up-delay-2">
+                <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6" style="background-color: rgba(8,120,229,0.08);">
+                    <span class="material-symbols-outlined text-primary text-[28px]">lock</span>
+                </div>
+                <h3 class="font-headline-md text-headline-md text-on-surface mb-3" style="font-size: 20px;">Privacy by Design</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                    Your files are encrypted in transit and automatically deleted after printing. We never store or read your documents.
+                </p>
+            </div>
+            <!-- Value 3 -->
+            <div class="value-card bg-white rounded-[24px] border border-[#e0dcd6] p-8 shadow-[0_4px_20px_rgba(0,0,0,0.04)] fade-up fade-up-delay-3">
+                <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6" style="background-color: rgba(8,120,229,0.08);">
+                    <span class="material-symbols-outlined text-primary text-[28px]">accessibility_new</span>
+                </div>
+                <h3 class="font-headline-md text-headline-md text-on-surface mb-3" style="font-size: 20px;">Access for All</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                    Designed for everyone — students, professionals, citizens, travelers.For everyone Prinkii is their for you.
+                </p>
+            </div>
+            <!-- Value 4 -->
+            <div class="value-card bg-white rounded-[24px] border border-[#e0dcd6] p-8 shadow-[0_4px_20px_rgba(0,0,0,0.04)] fade-up fade-up-delay-4">
+                <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6" style="background-color: rgba(8,120,229,0.08);">
+                    <span class="material-symbols-outlined text-primary text-[28px]">print</span>
+                </div>
+                <h3 class="font-headline-md text-headline-md text-on-surface mb-3" style="font-size: 20px;">Print Without Limits</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                    Wherever you need a print, PrinKii makes it accessible — without depending on traditional printing shops or waiting in queues.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-on-surface w-full py-xl border-t border-outline/20">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-lg px-gutter max-w-container-max mx-auto text-left">
+<div class="col-span-1 md:col-span-1 flex flex-col gap-4">
+<span class="text-surface-container-lowest font-display-lg font-black tracking-tight">Prinkii</span>
+<p class="font-body-sm text-body-sm text-surface-dim/70 mt-4">
+                    © 2026 Prinkii. All rights reserved. Precision printing for the digital age.
+                </p>
+</div>
+<div class="col-span-1 md:col-span-3 flex flex-wrap md:flex-nowrap gap-16 md:justify-end items-start mt-8 md:mt-0">
+            <div class="flex flex-col gap-4">
+                <h4 class="text-surface-container-lowest font-label-lg font-bold mb-2">Navigation</h4>
+                <a class="font-label-md text-label-md text-surface-dim/70 hover:text-surface-container-lowest transition-colors opacity-80 hover:opacity-100 hover:translate-x-1 transition-transform"
+                    href="about.html">About</a>
+                <a class="font-label-md text-label-md text-surface-dim/70 hover:text-surface-container-lowest transition-colors opacity-80 hover:opacity-100 hover:translate-x-1 transition-transform"
+                    href="privacy-policy.html">Privacy Policy</a>
+                <a class="font-label-md text-label-md text-surface-dim/70 hover:text-surface-container-lowest transition-colors opacity-80 hover:opacity-100 hover:translate-x-1 transition-transform"
+                    href="terms-of-use.html">Terms of Service</a>
+                <a class="font-label-md text-label-md text-surface-dim/70 hover:text-surface-container-lowest transition-colors opacity-80 hover:opacity-100 hover:translate-x-1 transition-transform"
+                    href="index.html#contact">Contact Support</a>
+                <a class="font-label-md text-label-md text-surface-dim/70 hover:text-surface-container-lowest transition-colors opacity-80 hover:opacity-100 hover:translate-x-1 transition-transform"
+                    href="download.html">Download App</a>
+            </div>
+            <div class="flex flex-col gap-4">
+                <h4 class="text-surface-container-lowest font-label-lg font-bold mb-2">Social</h4>
+                <a class="font-label-md text-label-md text-surface-dim/70 hover:text-surface-container-lowest transition-colors opacity-80 hover:opacity-100 hover:translate-x-1 transition-transform"
+                    href="#">Instagram</a>
+                <a class="font-label-md text-label-md text-surface-dim/70 hover:text-surface-container-lowest transition-colors opacity-80 hover:opacity-100 hover:translate-x-1 transition-transform"
+                    href="#">LinkedIn</a>
+                <a class="font-label-md text-label-md text-surface-dim/70 hover:text-surface-container-lowest transition-colors opacity-80 hover:opacity-100 hover:translate-x-1 transition-transform"
+                    href="#">Facebook</a>
+                <a class="font-label-md text-label-md text-surface-dim/70 hover:text-surface-container-lowest transition-colors opacity-80 hover:opacity-100 hover:translate-x-1 transition-transform"
+                    href="#">X</a>
+            </div>
+        </div>
+</div>
+</footer>
+
+<script>
+    // Intersection Observer for fade-up animations
+    document.addEventListener("DOMContentLoaded", () => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-up').forEach((el) => {
+            observer.observe(el);
+        });
+
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        if (menuBtn && menu) {
+            menuBtn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+        }
+    });
+
+    // Navigation Active State Highlight
+    const navLinks = document.querySelectorAll("nav a[href]");
+    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    const sections = document.querySelectorAll("section[id]");
+    
+    function updateNavState(activeId) {
+        navLinks.forEach(link => {
+            const href = link.getAttribute("href");
+            if(!href) return;
+            const [linkPath, linkHash] = href.split('#');
+            const pathMatches = (linkPath === currentPath) || (!linkPath && currentPath === 'index.html') || (linkPath === '' && href.startsWith('#'));
+            
+            let isActive = false;
+            if (activeId && pathMatches && linkHash === activeId) {
+                isActive = true; 
+            } else if (!activeId && pathMatches && !linkHash && (!linkPath || linkPath === currentPath)) {
+                isActive = true;
+            }
+
+            if (isActive) {
+                link.classList.add("text-primary", "font-bold", "[text-shadow:0_0_12px_rgba(10,115,232,0.8)]");
+                link.classList.remove("text-on-surface-variant", "dark:text-surface-variant");
+            } else {
+                link.classList.remove("text-primary", "font-bold", "[text-shadow:0_0_12px_rgba(10,115,232,0.8)]");
+                link.classList.add("text-on-surface-variant", "dark:text-surface-variant");
+            }
+        });
+    }
+
+    if (sections.length > 0) {
+        const scrollObserver = new IntersectionObserver((entries) => {
+            let activeId = null;
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    activeId = entry.target.id;
+                }
+            });
+            if (activeId) updateNavState(activeId);
+        }, { threshold: 0.3 });
+        
+        sections.forEach(sec => scrollObserver.observe(sec));
+    } else {
+        updateNavState(null);
+    }
+</script>
+</body>
+</html>
