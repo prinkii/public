@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Page Not Found | Prinkii</title>
+  <meta name="description" content="The page you're looking for doesn't exist. Return to Prinkii homepage to explore our self-service printing solutions.">
+  <link rel="icon" type="image/x-icon" href="images/favicon.png">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#005bb1",
+            "on-primary": "#ffffff",
+            "on-surface-variant": "#414753",
+            "background": "#f8f9fb",
+            "on-surface": "#191c1e",
+            "surface": "#f8f9fb",
+            "outline-variant": "#c1c6d5",
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-surface text-on-surface antialiased overflow-x-hidden min-h-screen flex flex-col">
+  <!-- Navigation Bar -->
+  <nav class="fixed top-0 left-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant shadow-sm">
+    <div class="flex justify-between items-center h-24 px-6 max-w-7xl mx-auto">
+      <a class="flex items-center gap-2" href="index.html">
+        <img alt="Prinkii Logo" class="h-10 md:h-12 w-auto" src="images/Long1.png">
+      </a>
+      <div class="hidden md:flex gap-8 items-center">
+        <a class="text-base font-medium text-on-surface-variant hover:text-primary hover:[text-shadow:0_0_12px_rgba(10,115,232,0.8)] transition-all duration-300" href="about.html">About</a>
+        <a class="text-base font-medium text-on-surface-variant hover:text-primary hover:[text-shadow:0_0_12px_rgba(10,115,232,0.8)] transition-all duration-300" href="index.html#how-it-works">How it works</a>
+        <a class="text-base font-medium text-on-surface-variant hover:text-primary hover:[text-shadow:0_0_12px_rgba(10,115,232,0.8)] transition-all duration-300" href="index.html#product-showcase">Features</a>
+        <a class="text-base font-medium text-on-surface-variant hover:text-primary hover:[text-shadow:0_0_12px_rgba(10,115,232,0.8)] transition-all duration-300" href="download.html">Download App</a>
+        <a class="text-base font-medium text-on-surface-variant hover:text-primary hover:[text-shadow:0_0_12px_rgba(10,115,232,0.8)] transition-all duration-300" href="index.html#contact">Contact</a>
+      </div>
+      <a class="hidden md:inline-flex items-center justify-center bg-primary text-white font-medium text-base px-6 py-3 rounded-full hover:bg-primary/90 transition-all duration-300 font-bold" href="download.html" style="background-color: rgb(8, 120, 232);">
+        Get Prinkii →
+      </a>
+      <button id="mobile-menu-btn" class="md:hidden text-on-surface" aria-label="Toggle navigation">
+        <span class="material-symbols-outlined text-[32px]">menu</span>
+      </button>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-surface border-b border-outline-variant px-6 py-4 space-y-3">
+      <a class="block text-base font-medium text-on-surface hover:text-primary transition-all duration-300" href="about.html">About</a>
+      <a class="block text-base font-medium text-on-surface hover:text-primary transition-all duration-300" href="index.html#how-it-works">How it works</a>
+      <a class="block text-base font-medium text-on-surface hover:text-primary transition-all duration-300" href="index.html#product-showcase">Features</a>
+      <a class="block text-base font-medium text-on-surface hover:text-primary transition-all duration-300" href="download.html">Download App</a>
+      <a class="block text-base font-medium text-on-surface hover:text-primary transition-all duration-300" href="index.html#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- 404 Content -->
+  <main class="flex-grow flex items-center justify-center pt-24 px-6">
+    <div class="max-w-2xl text-center">
+      <div class="mb-8">
+        <span class="material-symbols-outlined text-primary" style="font-size: 120px;">error_outline</span>
+      </div>
+      <h1 class="font-['Plus_Jakarta_Sans'] text-6xl md:text-8xl font-extrabold text-on-surface mb-4 tracking-tight">404</h1>
+      <h2 class="font-['Plus_Jakarta_Sans'] text-2xl md:text-3xl font-bold text-on-surface mb-4 tracking-tight">Page Not Found</h2>
+      <p class="text-lg text-on-surface-variant leading-relaxed mb-8 max-w-md mx-auto">
+        Oops! The page you're looking for doesn't exist. It might have been moved or deleted.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="index.html" class="inline-flex items-center justify-center bg-primary text-white font-medium text-base px-8 py-4 rounded-full hover:bg-primary/90 transition-all duration-300 font-bold" style="background-color: rgb(8, 120, 232);">
+          <span class="material-symbols-outlined mr-2">home</span>
+          Go to Homepage
+        </a>
+        <a href="javascript:history.back()" class="inline-flex items-center justify-center bg-surface-container-low text-on-surface font-medium text-base px-8 py-4 rounded-full hover:bg-surface-container transition-all duration-300 font-bold border border-outline-variant">
+          <span class="material-symbols-outlined mr-2">arrow_back</span>
+          Go Back
+        </a>
+      </div>
+      <div class="mt-12 pt-8 border-t border-outline-variant">
+        <p class="text-sm text-on-surface-variant mb-4">Looking for something specific?</p>
+        <div class="flex flex-wrap justify-center gap-4 text-sm">
+          <a href="about.html" class="text-primary hover:underline">About Us</a>
+          <span class="text-outline-variant">•</span>
+          <a href="download.html" class="text-primary hover:underline">Download App</a>
+          <span class="text-outline-variant">•</span>
+          <a href="index.html#contact" class="text-primary hover:underline">Contact Support</a>
+          <span class="text-outline-variant">•</span>
+          <a href="privacy-policy.html" class="text-primary hover:underline">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-on-surface w-full py-12 border-t border-outline/20 mt-12">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <span class="text-white font-['Plus_Jakarta_Sans'] text-xl font-black tracking-tight">Prinkii</span>
+      <p class="text-sm text-gray-400 mt-4">
+        © 2026 Prinkii. All rights reserved. Precision printing for the digital age.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    if (menuBtn && menu) {
+      menuBtn.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+      });
+    }
+  </script>
+
+</body>
+</html>

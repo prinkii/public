@@ -4,7 +4,25 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Prinkii</title>
+    <title>Prinkii - Self-Service Printing Made Simple | Print Anywhere, Anytime</title>
+    <meta name="description" content="Prinkii is your smart self-service printing solution. Scan QR codes, upload documents from your mobile, and print instantly at kiosks near you. Fast, secure, and affordable printing.">
+    <meta name="keywords" content="self-service printing, mobile printing, print kiosk, document printing, instant printing, Prinkii app">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://prinkii.com/">
+    <meta property="og:title" content="Prinkii - Self-Service Printing Made Simple">
+    <meta property="og:description" content="Print anywhere, anytime with Prinkii's smart self-service printing kiosks. Upload from mobile, select settings, and print instantly.">
+    <meta property="og:image" content="https://prinkii.com/images/front.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://prinkii.com/">
+    <meta property="twitter:title" content="Prinkii - Self-Service Printing Made Simple">
+    <meta property="twitter:description" content="Print anywhere, anytime with Prinkii's smart self-service printing kiosks.">
+    <meta property="twitter:image" content="https://prinkii.com/images/front.png">
+    
+    <link rel="canonical" href="https://prinkii.com/">
     <link rel="icon" type="image/x-icon" href="images/favicon.png">
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link
@@ -1052,6 +1070,24 @@
                                 class="w-full px-4 py-3 rounded-lg bg-surface-container-low border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary transition-all"
                                 placeholder="How can we help you?" rows="4"></textarea>
                         </div>
+                        <!-- Captcha Field -->
+                        <div class="md:col-span-2 space-y-2">
+                            <label class="font-label-md text-label-md text-on-surface">Security Check *</label>
+                            <div class="flex items-center gap-4">
+                                <div class="flex-1">
+                                    <div class="flex items-center gap-3 p-4 bg-surface-container-low rounded-lg border border-outline-variant">
+                                        <span class="material-symbols-outlined text-primary text-2xl">shield</span>
+                                        <span class="font-label-md text-on-surface" id="captcha-question"></span>
+                                    </div>
+                                </div>
+                                <div class="w-32">
+                                    <input id="captcha-input" name="captcha-answer" required
+                                        class="w-full px-4 py-3 rounded-lg bg-surface-container-low border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary transition-all text-center text-lg font-semibold"
+                                        placeholder="?" type="number" min="0" max="100">
+                                </div>
+                            </div>
+                            <p class="text-xs text-on-surface-variant">Please solve this simple math problem to verify you're human</p>
+                        </div>
                         <div class="md:col-span-2 pt-4">
                             <button id="contact-submit-btn"
                                 class="w-full bg-primary text-on-primary font-label-md text-label-md py-4 rounded-full font-bold hover:bg-primary-container transition-all flex items-center justify-center gap-2"
@@ -1148,14 +1184,55 @@
                 });
             }
 
-            // Contact Form AJAX Handler
+            // Contact Form AJAX Handler with Captcha
             const contactForm = document.getElementById('contact-form');
             const successMsg = document.getElementById('form-success-msg');
             const submitBtn = document.getElementById('contact-submit-btn');
+            const captchaQuestion = document.getElementById('captcha-question');
+            const captchaInput = document.getElementById('captcha-input');
+            
+            // Generate captcha
+            let captchaAnswer = 0;
+            function generateCaptcha() {
+                const num1 = Math.floor(Math.random() * 20) + 1;
+                const num2 = Math.floor(Math.random() * 20) + 1;
+                const operations = ['+', '-', '×'];
+                const operation = operations[Math.floor(Math.random() * operations.length)];
+                
+                captchaQuestion.textContent = `What is ${num1} ${operation} ${num2}?`;
+                
+                switch(operation) {
+                    case '+':
+                        captchaAnswer = num1 + num2;
+                        break;
+                    case '-':
+                        captchaAnswer = num1 - num2;
+                        break;
+                    case '×':
+                        captchaAnswer = num1 * num2;
+                        break;
+                }
+            }
+            
+            // Initialize captcha on page load
+            if (captchaQuestion) {
+                generateCaptcha();
+            }
 
             if (contactForm && successMsg && submitBtn) {
                 contactForm.addEventListener('submit', async (e) => {
                     e.preventDefault();
+                    
+                    // Validate captcha first
+                    const userAnswer = parseInt(captchaInput.value);
+                    if (userAnswer !== captchaAnswer) {
+                        successMsg.classList.remove('hidden');
+                        successMsg.className = 'md:col-span-2 p-4 rounded-lg text-sm font-medium bg-red-50 text-red-800 border border-red-200';
+                        successMsg.innerHTML = '❌ Incorrect security answer. Please try again.';
+                        generateCaptcha(); // Generate new captcha
+                        captchaInput.value = ''; // Clear input
+                        return;
+                    }
 
                     const originalText = submitBtn.innerHTML;
                     submitBtn.innerHTML = 'Sending message...';
@@ -1181,17 +1258,20 @@
                             successMsg.className = 'md:col-span-2 p-4 rounded-lg text-sm font-medium bg-green-50 text-green-800 border border-green-200';
                             successMsg.innerHTML = '✓ Thank you! Your message has been sent to contact@prinkii.com.';
                             contactForm.reset();
+                            generateCaptcha(); // Generate new captcha for next submission
                         } else {
                             successMsg.classList.remove('hidden');
                             successMsg.className = 'md:col-span-2 p-4 rounded-lg text-sm font-medium bg-green-50 text-green-800 border border-green-200';
                             successMsg.innerHTML = '✓ Thank you! Your message has been submitted to contact@prinkii.com.';
                             contactForm.reset();
+                            generateCaptcha(); // Generate new captcha
                         }
                     } catch (err) {
                         successMsg.classList.remove('hidden');
                         successMsg.className = 'md:col-span-2 p-4 rounded-lg text-sm font-medium bg-green-50 text-green-800 border border-green-200';
                         successMsg.innerHTML = '✓ Thank you! Your message has been submitted to contact@prinkii.com.';
                         contactForm.reset();
+                        generateCaptcha(); // Generate new captcha
                     } finally {
                         submitBtn.innerHTML = originalText;
                         submitBtn.disabled = false;
